@@ -1,0 +1,93 @@
+/// <reference path="../../../references/references.ts" />
+describe('Rectangle Directive', () => {
+    var ptor = browser;
+    var driver = browser.driver;
+    driver.manage().window().maximize();
+
+    beforeEach(function () {
+
+        browser.ignoreSynchronization = true;
+
+        browser.get('http://localhost:2859/23625b01-61de-4231-a9d2-b9b17c3c81aa#/WhiteBoard');
+
+    });
+    //it('should click on whiteboard tab & verify document tab & open document in case single document is not opened', () => {
+
+    //    driver.sleep(20000);
+    //    var count1;
+    //    //var element1 = browser.findElement(by.css('.whiteboard-top-menu-link'));
+    //    //element1.click();
+    //    //driver.sleep(15000);
+    //    //var count;
+    //    var element1 = browser.findElement(by.css('.whiteboard-document'));
+    //    count1 = element.all(by.css('.whiteboard-document')).count().then((count) => {
+    //        //console.log("count is:" + count);
+    //        if (count == 0)
+    //        //expect(element(by.css('.whiteboard-document')).count()).toBe(0);
+    //        {
+
+    //            driver.sleep(20000);
+    //            var element2 = browser.findElement(by.css('.add-new-doc'));
+    //            browser.actions().mouseMove(element2).perform();
+    //            driver.sleep(3000);
+    //            var element3 = browser.findElement(by.css('.newDocPage'));
+    //            browser.actions().mouseMove(element3).perform();
+    //            element3.click();
+    //            driver.sleep(20000);
+    //        }
+    //    });
+        //it('should click on whiteboard tab & verify document tab & open document in case single document is not opened & fetch id of that document', () => {
+
+        //    driver.sleep(20000);
+        //    var count1;
+        //    var element1 = browser.findElement(by.css('.whiteboard-document'));
+        //    count1 = element.all(by.css('.whiteboard-document')).count().then((count) => {
+        //        //console.log("count is:" + count);
+        //        if (count == 0) {
+
+        //            driver.sleep(20000);
+        //            var element2 = browser.findElement(by.css('.add-new-doc'));
+        //            browser.actions().mouseMove(element2).perform();
+        //            driver.sleep(3000);
+        //            var element3 = browser.findElement(by.css('.newDocPage'));
+        //            browser.actions().mouseMove(element3).perform();
+        //            //$('.newDocPage').on('click', '#dynamicElement', function () {
+
+        //            //});
+        //            element3.click();
+
+        //            driver.sleep(20000);
+        //        }
+        //    });
+            //it('should click on whiteboard tab & open new document', () => {
+
+            //         driver.sleep(20000);
+            //         var element1 = browser.findElement(by.css('.whiteboard-top-menu-link'));
+            //         element1.click();
+            //         driver.sleep(5000);
+
+            //         var element2 = browser.findElement(by.css('.add-new-doc'));
+            //         var element3 = browser.findElement(by.css('.newDocPage'));
+            //         browser.actions().mouseMove(element2).perform();
+            //         driver.sleep(3000);
+            //         browser.actions().mouseMove(element3).perform();
+            //         element3.click();
+            //         driver.sleep(20000);
+            // });
+
+            it('should click on whiteboard tab & open new document using xpath method', () => {
+
+                driver.sleep(20000);
+                var element1 = browser.findElement(by.css('.whiteboard-top-menu-link'));
+                element1.click();
+                driver.sleep(5000);
+                browser.actions().mouseMove(browser.findElement(by.xpath('//div[@class="add-new add-new-doc"]'))).perform();
+                 // ptor.actions().mouseMove(ptor.findElement(protractor.By.xpath('/div[@class="add - new add -new - doc"]/text()'))).perform();
+                driver.sleep(3000);
+                var element3 = browser.actions().mouseMove(browser.findElement(by.xpath('//a[@data-ng-click="createNewDocument()"]'))).click().perform();
+               // element3.click();
+                driver.sleep(20000);
+            });
+
+        });
+   
